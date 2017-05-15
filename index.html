@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    
+    <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		
+		<style>
+			body {
+				margin: 10% 0;
+			}
+		</style>
+		
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+		<script src="controller.js"></script>
+    
+</head>
+
+    <body ng-app="httpApp">
+        <div class="container">
+           <div class="row">
+               <div class="col-md-4">
+                   <input class="form-control" type="text" ng-model="searchTable"/>
+               </div>
+               <div>&nbsp;</div>
+           </div>
+            <div ng-controller="peopleCtrl">
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="person in persons | filter:searchTable">
+                        <td>{{person.name}}</td>
+                        <td>{{person.age}}</td>
+                      </tr>                     
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+
+    </body>
+</html>
